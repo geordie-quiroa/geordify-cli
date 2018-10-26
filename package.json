@@ -1,0 +1,23 @@
+{
+  "name": "geordify-cli",
+  "version": "1.0.0",
+  "description": "This is a CLI for consuming the spotify api from the command line prompt.",
+  "main": "index.js",
+  "bin": {
+    "geordify": "bin/geordify"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CLI",
+    "spotify",
+    "node",
+    "js"
+  ],
+  "author": "Geordie Quiroa",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
+}
