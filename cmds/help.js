@@ -10,16 +10,24 @@ const menus = {
     ${chalk.yellow('help')} ............... shows help menu for a command`,
 
   albums: `
-    usage: ${chalk.cyan('geordify albums')} ${chalk.yellow('<options>')} ${chalk.cyan('"artist/group name"')}
+    ${chalk.bgCyan('usage:')} ${chalk.cyan('geordify albums')} ${chalk.yellow('<options>')} ${chalk.cyan('"artist/group name"')}
 
-    ${chalk.yellow('--singer')} || ${chalk.yellow('--n')} || ${chalk.yellow('--artist')}..... the singer's albums
-    ${chalk.yellow('--band')} || ${chalk.yellow('--n')} || ${chalk.yellow('--artist')}..... the singer's albums
+    ${chalk.yellow('--singer')} || ${chalk.yellow('--artist')} || ${chalk.yellow('--a')}  ........ the singer's albums
+    ${chalk.yellow('--band')} || ${chalk.yellow('--b')} || ${chalk.yellow('--group')}  ........... the singer's albums
     `,
   songs: `
-    usage: ${chalk.cyan('geordify albums')} ${chalk.yellow('<options>')}
+  ${chalk.bgCyan('usage:')} ${chalk.cyan('geordify songs')} ${chalk.yellow('<options>')} ${chalk.cyan('"artist/group name"')} ${chalk.green('<flags> (optional)')}
 
-    ${chalk.yellow('--singer')} || ${chalk.yellow('--n')} || ${chalk.yellow('--artist')}..... the singer's albums
-    ${chalk.yellow('--band')} || ${chalk.yellow('--n')} || ${chalk.yellow('--artist')}..... the group's albums
+  ${chalk.bgYellow('                       ')} ${chalk.yellow.underline('Options')} ${chalk.bgYellow('                         ')}
+  
+    ${chalk.yellow('--artist')} || ${chalk.yellow('--a')} || ${chalk.yellow('--artist')}..... the singer's songs
+    ${chalk.yellow('--band')} || ${chalk.yellow('--b')} || ${chalk.yellow('--artist')}..... the group's songs
+
+  ${chalk.bgGreen('                        ')} ${chalk.green.underline('Flags')} ${chalk.bgGreen('                           ')}
+  
+    ${chalk.green('Default')} ................................. Just retrieve the singer/group's songs.
+    ${chalk.green('--t')} || ${chalk.green('--top')} ......... retrieves the songs and the the singer/group's top 10 songs > ${chalk.magenta('can specify country')}
+    ${chalk.magenta('Default')} ............................... The default country is US (United States)
   `
 }
 

@@ -25,7 +25,17 @@ module.exports = () => {
     
     switch (cmd){
         case 'songs':
-            require('./cmds/searchArtistSongs')(args);
+            if (!(args.band  || args.b || args.artist  || args.a) && args._.length <2){
+                console.log(' ');
+                console.log(`        ${chalk.bgRed('ERROR:')} ${chalk.red('Missing params or wrong option.')}`)
+                require('./cmds/help')(args);
+            } else if ( (args.band  || args.b || args.artist  || args.a)== true || (args._.length>1)) {
+                console.log(' ');
+                console.log(`  ${chalk.bgRed('ERROR:')} ${chalk.red('Missing ',chalk.yellow('<options>') ,' and ', chalk.yellow('artist/group'), 'name within')}  ${chalk.yellow('" "  (double or simple quotes)')}`);
+                require('./cmds/help')(args);
+            } else {
+                require('./cmds/searchArtistSongs')(args);
+            }
             break;
         case 'help':
             require('./cmds/help')(args);
@@ -37,11 +47,11 @@ module.exports = () => {
             require('./cmds/test')(args);
             break;
         case 'albums':
-            if (!(args.singer || args.band || args.artist || args.a || args.b) && args._.length <2) {
+            if (!(args.singer || args.band || args.artist || args.a || args.b || args.group) && args._.length <2) {
                 console.log(' ')
-                console.log(`${chalk.red('    ERROR: Missing params.')}`)
+                console.log(`${chalk.red('    ERROR: Missing params or wrong option.')}`)
                 require('./cmds/help')(args);
-            } else if ((args.singer || args.band || args.artist || args.a || args.b) == true || (args._.length>1)) {
+            } else if ((args.singer || args.band || args.artist || args.a || args.b || args.group) == true || (args._.length>1)) {
                 console.log(' ');
                 console.log(`    ${chalk.red('ERROR: Missing ',chalk.yellow('<options>') ,' and ', chalk.yellow('artist/group'), 'name within')}  ${chalk.yellow('" "  (double or simple quotes)')}`);
                 require('./cmds/help')(args);

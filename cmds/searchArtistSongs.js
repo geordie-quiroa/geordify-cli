@@ -24,16 +24,43 @@ var authOptions = {
     };
 
 module.exports = (args) => {
-    var decodedUrl= args.singer || args.band || args.artist || args.n;   
+    var decodedUrl=  args.band  || args.b || args.artist  || args.a || args.singer;   
     request.post(authOptions, function(error, response, body) {
-        if (!error && response.statusCode === 200) {
-            var baseUrl = 'https://api.spotify.com/v1/search?q=', encodedUrl = encodeURI(decodedUrl), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
-            // use the access token to access the Spotify Web API
-            var token = body.access_token;
-            spotifyApi.setAccessToken(token);
-            //console.log(token);
-            searchTracks();
-            if (args.t == true){
+        if (!(args.t || args.top)){    
+            if (!error && response.statusCode === 200) {
+                var baseUrl = 'https://api.spotify.com/v1/search?q=', encodedUrl = encodeURI(decodedUrl), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
+                // use the access token to access the Spotify Web API
+                var token = body.access_token;
+                spotifyApi.setAccessToken(token);
+                //console.log(token);
+                searchTracks();
+                if ((args.t || args.top) == true){ // SI lleva la bandera de -top (top tracks)
+                    var options = {
+                        url: variableUrl, // encuentra el ID del artista/banda
+                        headers: {
+                            'Authorization': 'Bearer ' + token
+                        },
+                        json: true
+                        };
+            
+                    request.get(options, function(error, response, body) {
+                        if (error) console.log(error);
+                        var id = body.artists.items[0].id; // ID del artista
+                        //getAlbums(id, token, decodedUrl);
+                        searchTop(id, token);
+                    });
+                }
+            } else{
+                console.log(error);
+            }
+        } else if ((args.t || args.top) == true){
+            if (!error && response.statusCode === 200) {
+                var baseUrl = 'https://api.spotify.com/v1/search?q=', encodedUrl = encodeURI(decodedUrl), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
+                // use the access token to access the Spotify Web API
+                var token = body.access_token;
+                spotifyApi.setAccessToken(token);
+                //console.log(token);
+            
                 var options = {
                     url: variableUrl, // encuentra el ID del artista/banda
                     headers: {
@@ -48,9 +75,9 @@ module.exports = (args) => {
                     //getAlbums(id, token, decodedUrl);
                     searchTop(id, token);
                 });
+            } else{
+                console.log(error);
             }
-        } else{
-            console.log(error);
         }
     });
     var searchTop = (artistId, access_token)=>{
