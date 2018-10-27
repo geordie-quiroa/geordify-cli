@@ -1,11 +1,13 @@
+var chalk = require('chalk');
 const menus = {
   main: `
-    geordify [command] <options>
+    
+    usage: ${chalk.cyan('geordify')} ${chalk.yellow('[command]')} ${chalk.cyan('<options>')}
 
-    albums .............. displays the albums of the group/singer
-    songs
-    version ............ shows package version
-    help ............... shows help menu for a command`,
+    ${chalk.yellow('albums')} .............. displays the albums of the group/singer
+    ${chalk.yellow('songs')} ............... displays the artist/group's songs
+    ${chalk.yellow('version')} ............ shows package version
+    ${chalk.yellow('help')} ............... shows help menu for a command`,
 
   albums: `
     geordify albums <options>

@@ -37,7 +37,7 @@ module.exports = (args) => {
     });
 
     var searchTracks = ()=>{
-        var queryKey = 'artist:', queryValue = args.singer || args.band || args.s || args.b, query = queryKey + queryValue; 
+        var queryKey = 'artist:', queryValue = args.singer || args.band || args.s || args.b || args.artist, query = queryKey + queryValue; 
         spotifyApi.searchTracks(query)
         .then(function(data) {
             var arraySongs = data.body.tracks.items;
