@@ -60,24 +60,29 @@ module.exports = (args) =>{
     var readDictionary = (dict)=>{
         var danceability = dict.danceability, energy = dict.energy, speechiness = dict.speechiness, acousticness = dict.acousticness, 
         instrumentalness = dict.instrumentalness, valence = dict.valence;
-        var unidad = '         ';
+        var unidad = '          ';
         var decimales = ' ';
-        var dance = unidad.repeat((danceability * 10)), ener = unidad.repeat((energy * 10)), speech = unidad.repeat((speechiness * 10)),
-        acoust =  unidad.repeat((acousticness * 10)), instrum = unidad.repeat((instrumentalness * 10)), val = unidad.repeat((valence * 10));
+        var danceDec = danceability*10, energDec = energy*10, speechDec = speechiness*10, acoustDec = acousticness*10, instruDec = instrumentalness*10,
+        valDec = valence*10;
+        var dance = unidad.repeat((danceDec))+decimales.repeat(((danceDec)%1)*10), ener = unidad.repeat(energDec)+decimales.repeat((energDec%1)*10),
+        speech = unidad.repeat(speechDec)+decimales.repeat(((speechDec)%1)*10),
+        acoust =  unidad.repeat(acoustDec)+decimales.repeat(((acoustDec)%1)*10), instrum = unidad.repeat(instruDec)+decimales.repeat(((instruDec)%1)*10),
+        val = unidad.repeat(valDec)+decimales.repeat(((valDec)%1)*10);
         console.log(`
     ${chalk.bgWhite('                                ')}${chalk.cyan(' Graphic for ', chalk.yellow(paramsAccepted))} ${chalk.bgWhite('                                ')}
-        `)
+
+    `)
         console.log(`             danceablity | ${chalk.bgYellow(dance)} ${chalk.yellow(danceability)}
      
                   energy | ${chalk.bgYellow(ener)} ${chalk.yellow(energy)} 
      
-             speechiness | ${chalk.bgYellow(speech)} 
+             speechiness | ${chalk.bgYellow(speech)} ${chalk.yellow(speechiness)}
 
-            acousticness | ${chalk.bgYellow(acoust)}
+            acousticness | ${chalk.bgYellow(acoust)} ${chalk.yellow(acousticness)}
         
-        instrumentallnes | ${chalk.bgYellow(instrum)}
+        instrumentallnes | ${chalk.bgYellow(instrum)} ${chalk.yellow(instrumentalness)}
 
-                 valence | ${chalk.bgYellow(val)}
+                 valence | ${chalk.bgYellow(val)} ${chalk.yellow(valence)}
      `)
     }
 }
