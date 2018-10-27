@@ -123,9 +123,13 @@ module.exports = (args) => {
     };
     var getSongs = (array2read, artist)=>{
         var long  = array2read.length;
-        console.log(chalk.hex('#DEADED').bold('     ----------------------------------- '), chalk.yellow.bold(artist+'`s'),chalk.hex('#DEADED').bold(' Songs ---------------------------------'));
+        console.log(`   ${chalk.bgWhite('                                                                                                        ')}`)
+        console.log('  ',  chalk.bgWhite('  '),chalk.hex('#DEADED').bold('     ----------------------------------- '), chalk.yellow.bold(artist+'`s'),chalk.hex('#DEADED').bold(' Songs --------------------------------- '), chalk.bgWhite('  '));
+        console.log(' ')
         for (var i = 0; i < long; i++) {
             console.log(chalk.yellow.bold('                    - '),chalk.hex('#DEADED').bold(array2read[i].name));
         }
+        console.log(`   ${chalk.bgWhite('  ')}                                                                                                    ${chalk.bgWhite('  ')}`);
+        console.log(`   ${chalk.bgWhite('                                                                                                        ')}`)
     }
 }
