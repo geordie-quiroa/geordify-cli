@@ -1,5 +1,5 @@
 const minimist = require('minimist');
-const colors = require('colors');
+const chalk = require('chalk');
 
 
 module.exports = () => {
@@ -37,7 +37,12 @@ module.exports = () => {
             require('./cmds/test')(args);
             break;
         case 'albums':
-            require('./cmds/searchArtistAlbums')(args);
+            if (!(args.singer || args.band || args.artist || args.n)) {
+                console.log(`          ${chalk.red('Missing params.')}`)
+                require('./cmds/help')(args);
+            } else {
+                require('./cmds/searchArtistAlbums')(args);
+            }
             break;
         default: 
             console.error(`"${cmd}" no es un comando valido...`);

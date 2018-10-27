@@ -23,18 +23,62 @@ var authOptions = {
     json: true
     };
 
-module.exports = (args) => {   
+module.exports = (args) => {
+    var decodedUrl= args.singer || args.band || args.artist || args.n;   
     request.post(authOptions, function(error, response, body) {
         if (!error && response.statusCode === 200) {
+            var baseUrl = 'https://api.spotify.com/v1/search?q=', encodedUrl = encodeURI(decodedUrl), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
             // use the access token to access the Spotify Web API
             var token = body.access_token;
             spotifyApi.setAccessToken(token);
             //console.log(token);
             searchTracks();
+            if (args.t == true){
+                var options = {
+                    url: variableUrl, // encuentra el ID del artista/banda
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    json: true
+                    };
+        
+                request.get(options, function(error, response, body) {
+                    if (error) console.log(error);
+                    var id = body.artists.items[0].id; // ID del artista
+                    //getAlbums(id, token, decodedUrl);
+                    searchTop(id, token);
+                });
+            }
         } else{
             console.log(error);
         }
     });
+    var searchTop = (artistId, access_token)=>{
+        var baseUrl= 'https://api.spotify.com/v1/artists/', endpoint = '/top-tracks', qcountry = '?country=', country = args.country || 'US',  variableUrl = baseUrl+artistId+endpoint+qcountry+country;
+        var options = {
+            url: variableUrl, //'https://api.spotify.com/v1/users/jmperezperez',
+            headers: {
+                'Authorization': 'Bearer ' + access_token
+            },
+            json: true
+            };
+
+            request.get(options, function(error, response, body) {
+                if (error) console.log(error);
+                var tracks = body.tracks; // top tracks del artista
+                //console.log(body.tracks)
+                cleanTopTracks(tracks, country);
+
+            });
+    }
+    var cleanTopTracks = (array, country)=>{
+        var long = array.length;
+        console.log(chalk.hex('#DEADED').bold('     ----------------------------------- '), chalk.yellow.bold(decodedUrl+'`s'),chalk.hex('#DEADED').bold(' Top Ten in ',chalk.yellow.bold(country) ,'---------------------------------'));
+        for (var i = 0; i < long; i++) {
+            var song = array[i].name;
+            console.log(`                      ${chalk.yellow.bold(i+1, ' -')}  ${chalk.hex('#DEADED').bold(song)}`);
+        };
+    }
 
     var searchTracks = ()=>{
         var queryKey = 'artist:', queryValue = args.singer || args.band || args.s || args.b || args.artist, query = queryKey + queryValue; 

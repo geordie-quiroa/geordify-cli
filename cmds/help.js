@@ -10,9 +10,12 @@ const menus = {
     ${chalk.yellow('help')} ............... shows help menu for a command`,
 
   albums: `
-    geordify albums <options>
+    usage: ${chalk.cyan('geordify albums')} ${chalk.yellow('<options>')}
 
-    --name, -n ..... the group/singer's albums`,
+    ${chalk.yellow('--singer')} || ${chalk.yellow('--n')} || ${chalk.yellow('--artist')}..... the singer's albums`,
+  songs: `
+  
+  `
 }
 
 module.exports = (args) => {
