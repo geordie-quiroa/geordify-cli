@@ -37,8 +37,13 @@ module.exports = () => {
             require('./cmds/test')(args);
             break;
         case 'albums':
-            if (!(args.singer || args.band || args.artist || args.n)) {
-                console.log(`          ${chalk.red('Missing params.')}`)
+            if (!(args.singer || args.band || args.artist || args.a || args.b) && args._.length <2) {
+                console.log(' ')
+                console.log(`${chalk.red('    ERROR: Missing params.')}`)
+                require('./cmds/help')(args);
+            } else if ((args.singer || args.band || args.artist || args.a || args.b) == true || (args._.length>1)) {
+                console.log(' ');
+                console.log(`    ${chalk.red('ERROR: Missing ',chalk.yellow('<options>') ,' and ', chalk.yellow('artist/group'), 'name within')}  ${chalk.yellow('" "  (double or simple quotes)')}`);
                 require('./cmds/help')(args);
             } else {
                 require('./cmds/searchArtistAlbums')(args);

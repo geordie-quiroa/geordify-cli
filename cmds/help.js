@@ -10,11 +10,16 @@ const menus = {
     ${chalk.yellow('help')} ............... shows help menu for a command`,
 
   albums: `
+    usage: ${chalk.cyan('geordify albums')} ${chalk.yellow('<options>')} ${chalk.cyan('"artist/group name"')}
+
+    ${chalk.yellow('--singer')} || ${chalk.yellow('--n')} || ${chalk.yellow('--artist')}..... the singer's albums
+    ${chalk.yellow('--band')} || ${chalk.yellow('--n')} || ${chalk.yellow('--artist')}..... the singer's albums
+    `,
+  songs: `
     usage: ${chalk.cyan('geordify albums')} ${chalk.yellow('<options>')}
 
-    ${chalk.yellow('--singer')} || ${chalk.yellow('--n')} || ${chalk.yellow('--artist')}..... the singer's albums`,
-  songs: `
-  
+    ${chalk.yellow('--singer')} || ${chalk.yellow('--n')} || ${chalk.yellow('--artist')}..... the singer's albums
+    ${chalk.yellow('--band')} || ${chalk.yellow('--n')} || ${chalk.yellow('--artist')}..... the group's albums
   `
 }
 

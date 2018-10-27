@@ -24,7 +24,7 @@ var authOptions = {
 module.exports = (args) => {   
     request.post(authOptions, function(error, response, body) {
         if (!error && response.statusCode === 200) {
-            var baseUrl = 'https://api.spotify.com/v1/search?q=', decodedUrl= args.singer || args.band || args.artist || args.n, encodedUrl = encodeURI(decodedUrl), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
+            var baseUrl = 'https://api.spotify.com/v1/search?q=', decodedUrl= args.singer || args.band || args.artist || args.a || args.b, encodedUrl = encodeURI(decodedUrl), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
             //console.log(decodedUrl);
             // use the access token to access the Spotify Web API
             var token = body.access_token;
