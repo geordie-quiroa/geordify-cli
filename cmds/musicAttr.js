@@ -62,12 +62,15 @@ module.exports = (args) =>{
         instrumentalness = dict.instrumentalness, valence = dict.valence;
         var unidad = '         ';
         var decimales = ' ';
-        var dance = unidad.repeat((danceability * 10)), ener = unidad.repeat((energy * 10)), speech = unidad.repeat((speechiness * 10)) ;
-        console.log(`        danceablity | ${chalk.bgYellow(dance)} 
+        var dance = unidad.repeat((danceability * 10)), ener = unidad.repeat((energy * 10)), speech = unidad.repeat((speechiness * 10)),
+        acoust =  unidad.repeat((acousticness * 10));
+        console.log(`         danceablity | ${chalk.bgYellow(dance)} 
      
-             energy | ${chalk.bgYellow(ener)} 
+              energy | ${chalk.bgYellow( chalk.black(''),ener)} 
      
-        speechiness | ${chalk.bgYellow(speech)} 
+         speechiness | ${chalk.bgYellow(speech)} 
+
+        acousticness | ${chalk.bgYellow(acoust)} 
      `)
     }
 }
