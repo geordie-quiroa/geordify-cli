@@ -2,7 +2,7 @@ var request = require('request');
 var credentials = require('./log-credentials');
 var client_id = credentials.spotifyClientId; // Your client id
 var client_secret = credentials.spotifySecretToken; // Your secret
-
+var chalk = require('chalk');
 var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     headers: {
@@ -54,7 +54,20 @@ module.exports = (args) =>{
         request.get(options4audioFeatures, function(error, response, body) {
             if (error) console.log(error);
             console.log(body);
-
+            readDictionary(body);
         });
+    }
+    var readDictionary = (dict)=>{
+        var danceability = dict.danceability, energy = dict.energy, speechiness = dict.speechiness, acousticness = dict.acousticness, 
+        instrumentalness = dict.instrumentalness, valence = dict.valence;
+        var unidad = '         ';
+        var decimales = ' ';
+        var dance = unidad.repeat((danceability * 10)), ener = unidad.repeat((energy * 10)), speech = unidad.repeat((speechiness * 10)) ;
+        console.log(`        danceablity | ${chalk.bgYellow(dance)} 
+     
+             energy | ${chalk.bgYellow(ener)} 
+     
+        speechiness | ${chalk.bgYellow(speech)} 
+     `)
     }
 }
