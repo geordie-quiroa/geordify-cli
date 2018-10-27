@@ -29,6 +29,9 @@ module.exports = () => {
     }
     
     switch (cmd){
+        case 'audio-graphic':
+            require('./cmds/musicAttr')(args);
+            break;
         case 'songs':
             if (!(args.band  || args.b || args.artist  || args.a || args.singer ||args.s) && args._.length <2){
                 console.log(' ');

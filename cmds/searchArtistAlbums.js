@@ -1,12 +1,12 @@
 var SpotifyWebApi = require('spotify-web-api-node');
 var request = require('request');
-var client_id = '38e377baa81747a68c4cb3677646cc16'; // Your client id
-var client_secret = '87c0344055ab4e7cabc6924c12e245bf'; // Your secre
-// credentials are optional
+var credentials = require('./log-credentials');
+var client_id = credentials.spotifyClientId; // Your client id
+var client_secret = credentials.spotifySecretToken; // Your secret
 var chalk = require('chalk');
 var spotifyApi = new SpotifyWebApi({
-  clientId: '38e377baa81747a68c4cb3677646cc16',
-  clientSecret: '87c0344055ab4e7cabc6924c12e245bf',
+  clientId: client_id,
+  clientSecret: client_secret,
   redirectUri: 'http://www.example.com/callback'
 });
 //spotifyApi.setAccessToken('BQCvT2kB_sS402TVFmkmOIL80PRWAyPy1UapgSZz_W0H5EDym6nFb8FecSkOAMRvnEFBAP6qzV1suCCplIw');

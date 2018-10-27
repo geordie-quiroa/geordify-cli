@@ -1,12 +1,13 @@
 var SpotifyWebApi = require('spotify-web-api-node');
 var request = require('request');
-var client_id = '38e377baa81747a68c4cb3677646cc16'; // Your client id
-var client_secret = '87c0344055ab4e7cabc6924c12e245bf'; // Your secre
+var credentials = require('./log-credentials');
+var client_id = credentials.spotifyClientId; // Your client id
+var client_secret = credentials.spotifySecretToken; // Your secret
 var chalk = require('chalk');
 // credentials are optional
 var spotifyApi = new SpotifyWebApi({
-  clientId: '38e377baa81747a68c4cb3677646cc16',
-  clientSecret: '87c0344055ab4e7cabc6924c12e245bf',
+  clientId: client_id,
+  clientSecret: client_secret,
   redirectUri: 'http://www.example.com/callback'
 });
 
@@ -86,7 +87,7 @@ module.exports = (args) => {
     var cleanTopTracks = (array, country)=>{
         var long = array.length;
         console.log(`   ${chalk.bgWhite('                                                                                                        ')}`)
-        console.log('  ',  chalk.bgWhite('  '),chalk.hex('#DEADED').bold(' --------------------------------- '), chalk.yellow.bold(paramsAccepted+'`s'),chalk.hex('#DEADED').bold(' Top Ten in ',chalk.yellow.bold(country) ,'-------------------------------'), chalk.bgWhite('  '));
+        console.log('  ',  chalk.bgWhite('  '),chalk.hex('#DEADED').bold(' --------------------------------- '), chalk.yellow.bold(paramsAccepted+'`s'),chalk.hex('#DEADED').bold(' Top Ten in ',chalk.yellow.bold(country) ,'-------------------------------'));
         console.log(' ')
         for (var i = 0; i < long; i++) {
             var song = array[i].name;

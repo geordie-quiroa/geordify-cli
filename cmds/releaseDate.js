@@ -21,7 +21,7 @@ module.exports = (args) =>{
             // use the access token to access the Spotify Web API
             var baseUrl = 'https://api.spotify.com/v1/search?q=', encodedUrl = encodeURI(paramsAccepted), typeSearch = '&type=track', variableUrl = baseUrl + encodedUrl + typeSearch;
             var token = body.access_token;
-            //console.log(token);
+            console.log(token);
             var options = {
             url: variableUrl,
             headers: {
@@ -38,23 +38,8 @@ module.exports = (args) =>{
                 //console.log(body.tracks.items[0].duration_ms);
                 //console.log(body.tracks.items[0].album.release_date);
                 //console.log(body.tracks.items[0].album.id);
-                getAudioFeatures(id, token);
-
+                
             });
         } else {console.log(error);}
     });
-    var getAudioFeatures = (trackId, token)=>{
-        var options4audioFeatures = {
-            url: "https://api.spotify.com/v1/audio-features/"+trackId,
-            headers: {
-                'Authorization': 'Bearer ' + token
-            },
-            json: true
-            };
-        request.get(options4audioFeatures, function(error, response, body) {
-            if (error) console.log(error);
-            console.log(body);
-
-        });
-    }
 }
