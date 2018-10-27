@@ -63,14 +63,21 @@ module.exports = (args) =>{
         var unidad = '         ';
         var decimales = ' ';
         var dance = unidad.repeat((danceability * 10)), ener = unidad.repeat((energy * 10)), speech = unidad.repeat((speechiness * 10)),
-        acoust =  unidad.repeat((acousticness * 10));
-        console.log(`         danceablity | ${chalk.bgYellow(dance)} 
+        acoust =  unidad.repeat((acousticness * 10)), instrum = unidad.repeat((instrumentalness * 10)), val = unidad.repeat((valence * 10));
+        console.log(`
+    ${chalk.bgWhite('                                ')}${chalk.cyan(' Graphic for ', chalk.yellow(paramsAccepted))} ${chalk.bgWhite('                                ')}
+        `)
+        console.log(`             danceablity | ${chalk.bgYellow(dance)} ${chalk.yellow(danceability)}
      
-              energy | ${chalk.bgYellow( chalk.black(''),ener)} 
+                  energy | ${chalk.bgYellow(ener)} ${chalk.yellow(energy)} 
      
-         speechiness | ${chalk.bgYellow(speech)} 
+             speechiness | ${chalk.bgYellow(speech)} 
 
-        acousticness | ${chalk.bgYellow(acoust)} 
+            acousticness | ${chalk.bgYellow(acoust)}
+        
+        instrumentallnes | ${chalk.bgYellow(instrum)}
+
+                 valence | ${chalk.bgYellow(val)}
      `)
     }
 }
