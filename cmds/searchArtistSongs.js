@@ -2,6 +2,7 @@ var SpotifyWebApi = require('spotify-web-api-node');
 var request = require('request');
 var client_id = '38e377baa81747a68c4cb3677646cc16'; // Your client id
 var client_secret = '87c0344055ab4e7cabc6924c12e245bf'; // Your secre
+var chalk = require('chalk');
 // credentials are optional
 var spotifyApi = new SpotifyWebApi({
   clientId: '38e377baa81747a68c4cb3677646cc16',
@@ -47,9 +48,9 @@ module.exports = (args) => {
     };
     var getSongs = (array2read, artist)=>{
         var long  = array2read.length;
-        console.log('-------- '+ artist+'`s Songs ------------');
+        console.log(chalk.hex('#DEADED').bold('     ----------------------------------- '), chalk.yellow.bold(artist+'`s'),chalk.hex('#DEADED').bold(' Songs ---------------------------------'));
         for (var i = 0; i < long; i++) {
-            console.log(' - ',array2read[i].name);
+            console.log(chalk.yellow.bold('                    - '),chalk.hex('#DEADED').bold(array2read[i].name));
         }
     }
 }

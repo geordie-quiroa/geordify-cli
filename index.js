@@ -1,4 +1,5 @@
 const minimist = require('minimist');
+const colors = require('colors');
 
 
 module.exports = () => {
