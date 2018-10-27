@@ -20,14 +20,14 @@ const menus = {
 
   ${chalk.bgYellow('                       ')} ${chalk.yellow.underline('Options')} ${chalk.bgYellow('                         ')}
   
-    ${chalk.yellow('--artist')} || ${chalk.yellow('--a')} || ${chalk.yellow('--artist')}..... the singer's songs
-    ${chalk.yellow('--band')} || ${chalk.yellow('--b')} || ${chalk.yellow('--artist')}..... the group's songs
+    ${chalk.yellow('--artist')} || ${chalk.yellow('--a')} || ${chalk.yellow('--singer')} ${chalk.yellow('--s')} ..... the singer's songs
+    ${chalk.yellow('--band')} || ${chalk.yellow('--b')} .length...................................................... the group's songs
 
   ${chalk.bgGreen('                        ')} ${chalk.green.underline('Flags')} ${chalk.bgGreen('                           ')}
   
-    ${chalk.green('Default')} ................................. Just retrieve the singer/group's songs.
-    ${chalk.green('--t')} || ${chalk.green('--top')} ......... retrieves the songs and the the singer/group's top 10 songs > ${chalk.magenta('can specify country')}
-    ${chalk.magenta('Default')} ............................... The default country is US (United States)
+    ${chalk.green('Default (none)')} ................................. Just retrieve the singer/group's songs.
+    ${chalk.green('--t')} || ${chalk.green('--top')} ................. retrieves the singer/group's top 10 songs > ${chalk.magenta('can specify country')}
+    ${chalk.magenta('Default Country')} ............................... The default country is US (United States)
   `
 }
 

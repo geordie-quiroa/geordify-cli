@@ -24,11 +24,11 @@ var authOptions = {
     };
 
 module.exports = (args) => {
-    var decodedUrl=  args.band  || args.b || args.artist  || args.a || args.singer;   
+    var paramsAccepted=  args.band  || args.b || args.artist  || args.a || args.singer ||args.s; 
     request.post(authOptions, function(error, response, body) {
         if (!(args.t || args.top)){    
             if (!error && response.statusCode === 200) {
-                var baseUrl = 'https://api.spotify.com/v1/search?q=', encodedUrl = encodeURI(decodedUrl), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
+                var baseUrl = 'https://api.spotify.com/v1/search?q=', encodedUrl = encodeURI(paramsAccepted), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
                 // use the access token to access the Spotify Web API
                 var token = body.access_token;
                 spotifyApi.setAccessToken(token);
@@ -46,7 +46,7 @@ module.exports = (args) => {
                     request.get(options, function(error, response, body) {
                         if (error) console.log(error);
                         var id = body.artists.items[0].id; // ID del artista
-                        //getAlbums(id, token, decodedUrl);
+                        //getAlbums(id, token, paramsAccepted);
                         searchTop(id, token);
                     });
                 }
@@ -55,7 +55,7 @@ module.exports = (args) => {
             }
         } else if ((args.t || args.top) == true){
             if (!error && response.statusCode === 200) {
-                var baseUrl = 'https://api.spotify.com/v1/search?q=', encodedUrl = encodeURI(decodedUrl), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
+                var baseUrl = 'https://api.spotify.com/v1/search?q=', encodedUrl = encodeURI(paramsAccepted), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
                 // use the access token to access the Spotify Web API
                 var token = body.access_token;
                 spotifyApi.setAccessToken(token);
@@ -72,7 +72,7 @@ module.exports = (args) => {
                 request.get(options, function(error, response, body) {
                     if (error) console.log(error);
                     var id = body.artists.items[0].id; // ID del artista
-                    //getAlbums(id, token, decodedUrl);
+                    //getAlbums(id, token, paramsAccepted);
                     searchTop(id, token);
                 });
             } else{
@@ -100,15 +100,19 @@ module.exports = (args) => {
     }
     var cleanTopTracks = (array, country)=>{
         var long = array.length;
-        console.log(chalk.hex('#DEADED').bold('     ----------------------------------- '), chalk.yellow.bold(decodedUrl+'`s'),chalk.hex('#DEADED').bold(' Top Ten in ',chalk.yellow.bold(country) ,'---------------------------------'));
+        console.log(`   ${chalk.bgWhite('                                                                                                        ')}`)
+        console.log('  ',  chalk.bgWhite('  '),chalk.hex('#DEADED').bold(' --------------------------------- '), chalk.yellow.bold(paramsAccepted+'`s'),chalk.hex('#DEADED').bold(' Top Ten in ',chalk.yellow.bold(country) ,'-------------------------------'), chalk.bgWhite('  '));
+        console.log(' ')
         for (var i = 0; i < long; i++) {
             var song = array[i].name;
-            console.log(`                      ${chalk.yellow.bold(i+1, ' -')}  ${chalk.hex('#DEADED').bold(song)}`);
+            console.log(`                               ${chalk.yellow.bold(i+1, ' -')}  ${chalk.hex('#DEADED').bold(song)}`);
         };
+        console.log(`   ${chalk.bgWhite('  ')}                                                                                                    ${chalk.bgWhite('  ')}`);
+        console.log(`   ${chalk.bgWhite('                                                                                                        ')}`)
     }
 
     var searchTracks = ()=>{
-        var queryKey = 'artist:', queryValue = args.singer || args.band || args.s || args.b || args.artist, query = queryKey + queryValue; 
+        var queryKey = 'artist:', queryValue = paramsAccepted, query = queryKey + queryValue; 
         spotifyApi.searchTracks(query)
         .then(function(data) {
             var arraySongs = data.body.tracks.items;
