@@ -23,6 +23,7 @@ module.exports = (args) =>{
 
             // use the access token to access the Spotify Web API
             var token = body.access_token;
+            console.log(token);
             var options = {
             url: 'https://api.spotify.com/v1/tracks/2TpxZ7JUBn3uw46aR7qd6V', //'https://api.spotify.com/v1/users/jmperezperez',
             headers: {

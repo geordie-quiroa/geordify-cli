@@ -18,6 +18,9 @@
   "author": "Geordie Quiroa",
   "license": "MIT",
   "dependencies": {
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "request": "^2.88.0",
+    "require": "^2.4.20",
+    "spotify-web-api-node": "^4.0.0"
   }
 }
