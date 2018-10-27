@@ -8,8 +8,8 @@ var spotifyApi = new SpotifyWebApi({
   clientSecret: '87c0344055ab4e7cabc6924c12e245bf',
   redirectUri: 'http://www.example.com/callback'
 });
-
 //spotifyApi.setAccessToken('BQCvT2kB_sS402TVFmkmOIL80PRWAyPy1UapgSZz_W0H5EDym6nFb8FecSkOAMRvnEFBAP6qzV1suCCplIw');
+
 
 var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
@@ -27,26 +27,39 @@ request.post(authOptions, function(error, response, body) {
 
         // use the access token to access the Spotify Web API
         var token = body.access_token;
-        spotifyApi.setAccessToken(token);
-        console.log(token);
-        searchTracks();
-    } else{
-        console.log(error);
-    }
+        //console.log(token);
+        var options = {
+        url: 'https://api.spotify.com/v1/search?q=tania%20bowra&type=artist', //'https://api.spotify.com/v1/users/jmperezperez',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        json: true
+        };
+
+        request.get(options, function(error, response, body) {
+            if (error) console.log(error);
+            var id = body.artists.items[0].id; // ID del artista
+            getAlbums(id, token);
+
+        });
+    } else {console.log(error);}
 });
 
-var searchTracks = ()=>{
-    spotifyApi.searchTracks('artist:Andy Mineo')
-    .then(function(data) {
-        var arraySongs = data.body.tracks.items;
-        getSongs(arraySongs);
-    }, function(err) {
-        console.log('Something went wrong!', err);
-    });
-};
-var getSongs = (array2read)=>{
-    var long  = array2read.length;
-    console.log('-------- Songs ------------');
+var getAlbums = (artistId, accessToken)=>{
+    spotifyApi.setAccessToken(accessToken);
+    spotifyApi.getArtistAlbums(artistId)
+        .then(function(data) {
+            var albums = data.body.items
+            //console.log('Artist albums', albums);
+            readAlbums(albums);
+        }, function(err) {
+            console.error(err);
+        });
+}
+
+var readAlbums = (array2read) =>{
+    var long = array2read.length;
+    console.log('-------- Albums ------------');
     for (var i = 0; i < long; i++) {
         console.log(' - ',array2read[i].name);
     }
