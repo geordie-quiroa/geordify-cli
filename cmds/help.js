@@ -12,8 +12,8 @@ const menus = {
   albums: `
     ${chalk.bgCyan('usage:')} ${chalk.cyan('geordify albums')} ${chalk.yellow('<options>')} ${chalk.cyan('"artist/group name"')}
 
-    ${chalk.yellow('--singer')} || ${chalk.yellow('--artist')} || ${chalk.yellow('--a')}  ........ the singer's albums
-    ${chalk.yellow('--band')} || ${chalk.yellow('--b')} || ${chalk.yellow('--group')}  ........... the singer's albums
+    ${chalk.yellow('--singer')} || ${chalk.yellow('--artist')} || ${chalk.yellow('--a')}  ........ displays the singer's albums
+    ${chalk.yellow('--band')} || ${chalk.yellow('--b')} || ${chalk.yellow('--group')}  ........... displays the group's albums
     `,
   songs: `
   ${chalk.bgCyan('usage:')} ${chalk.cyan('geordify songs')} ${chalk.yellow('<options>')} ${chalk.cyan('"artist/group name"')} ${chalk.green('<flags> (optional)')}
@@ -28,6 +28,18 @@ const menus = {
     ${chalk.green('Default (none)')} ................................. Just retrieve the singer/group's songs.
     ${chalk.green('--t')} || ${chalk.green('--top')} ................. retrieves the singer/group's top 10 songs > ${chalk.magenta('can specify country')}
     ${chalk.magenta('Default Country')} ............................... The default country is US (United States)
+    ${chalk.magenta('--country')} ${chalk.gray('<country code>')} ....................... Next to it, write the country code ISO 3166-1 alpha-2
+    
+    ${chalk.bgMagenta('ISO 3166-1 alpha-2 country code examples:')}
+        ${chalk.gray.inverse('Code')}               ${chalk.gray.inverse('Country')}
+         ${chalk.gray('US')}                 ${chalk.gray('United States')}
+         ${chalk.gray('AU')}                 ${chalk.gray('Australia')}
+         ${chalk.gray('GT')}                 ${chalk.gray('Guatemala')}
+         ${chalk.gray('CL')}                 ${chalk.gray('Chile')}
+         ${chalk.gray('CL')}                 ${chalk.gray('Chile')}
+         ${chalk.gray('IR')}                 ${chalk.gray('Iran')}
+         ${chalk.gray('CH')}                 ${chalk.gray('Switzerland')}
+         ${chalk.gray('IL')}                 ${chalk.gray('Israel')} 
   `
 }
 

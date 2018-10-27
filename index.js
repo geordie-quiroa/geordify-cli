@@ -19,6 +19,7 @@ module.exports = () => {
     console.log(`
      ${chalk.bgCyan("Please wait a few seconds...")}
     `);
+    console.log(args);
     if (args.version || args.v) {
         cmd = 'version';
       }    
@@ -36,6 +37,10 @@ module.exports = () => {
             } else if ( (args.band  || args.b || args.artist  || args.a || args.singer ||args.s)== true || (args._.length>1)) {
                 console.log(' ');
                 console.log(`  ${chalk.bgRed('ERROR:')} ${chalk.red('Missing ',chalk.yellow('<options>') ,' and ', chalk.yellow('artist/group'), 'name within')}  ${chalk.yellow('" "  (double or simple quotes)')}`);
+                require('./cmds/help')(args);
+            } else if (args.country == true) {
+                console.log(' ');
+                console.log(`  ${chalk.bgRed('ERROR:')} ${chalk.red('Missing ')} ${chalk.yellow('<country code>')}`);
                 require('./cmds/help')(args);
             } else {
                 require('./cmds/searchArtistSongs')(args);
@@ -55,9 +60,9 @@ module.exports = () => {
                 console.log(' ');
                 console.log(`        ${chalk.bgRed('ERROR:')} ${chalk.red('Missing params or wrong option.')}`);
                 require('./cmds/help')(args);
-            } else if ((args.singer || args.band || args.artist || args.a || args.b || args.group) == true || (args._.length>1)) {
+            } else if ((args.singer || args.band || args.artist || args.a || args.b || args.group) == true || (args._.length>1 )) {
                 console.log(' ');
-                console.log(`    ${chalk.red('ERROR: Missing ',chalk.yellow('<options>') ,' and ', chalk.yellow('artist/group'), 'name within')}  ${chalk.yellow('" "  (double or simple quotes)')}`);
+                console.log(`    ${chalk.red('ERROR: Missing ',chalk.yellow('<options>') ,' and/or ', chalk.yellow('artist/group'), 'name within')}  ${chalk.yellow('" "  (double or simple quotes)')}`);
                 require('./cmds/help')(args);
             } else {
                 require('./cmds/searchArtistAlbums')(args);

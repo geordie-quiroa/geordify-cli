@@ -34,22 +34,7 @@ module.exports = (args) => {
                 spotifyApi.setAccessToken(token);
                 //console.log(token);
                 searchTracks();
-                if ((args.t || args.top) == true){ // SI lleva la bandera de -top (top tracks)
-                    var options = {
-                        url: variableUrl, // encuentra el ID del artista/banda
-                        headers: {
-                            'Authorization': 'Bearer ' + token
-                        },
-                        json: true
-                        };
-            
-                    request.get(options, function(error, response, body) {
-                        if (error) console.log(error);
-                        var id = body.artists.items[0].id; // ID del artista
-                        //getAlbums(id, token, paramsAccepted);
-                        searchTop(id, token);
-                    });
-                }
+                
             } else{
                 console.log(error);
             }
@@ -124,7 +109,7 @@ module.exports = (args) => {
     var getSongs = (array2read, artist)=>{
         var long  = array2read.length;
         console.log(`   ${chalk.bgWhite('                                                                                                        ')}`)
-        console.log('  ',  chalk.bgWhite('  '),chalk.hex('#DEADED').bold('     ----------------------------------- '), chalk.yellow.bold(artist+'`s'),chalk.hex('#DEADED').bold(' Songs --------------------------------- '), chalk.bgWhite('  '));
+        console.log('  ',  chalk.bgWhite('  '),chalk.hex('#DEADED').bold('     ----------------------------------- '), chalk.yellow.bold(artist+'`s'),chalk.hex('#DEADED').bold(' Songs --------------------------------- '));
         console.log(' ')
         for (var i = 0; i < long; i++) {
             console.log(chalk.yellow.bold('                    - '),chalk.hex('#DEADED').bold(array2read[i].name));
