@@ -21,46 +21,48 @@ var authOptions = {
     },
     json: true
     };
+module.exports = (args) => {   
+    request.post(authOptions, function(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            var baseUrl = 'https://api.spotify.com/v1/search?q=', decodedUrl= args.singer || args.band, encodedUrl = encodeURI(decodedUrl), typeSearch = '&type=artist', variableUrl = baseUrl + encodedUrl + typeSearch;
+            //console.log(decodedUrl);
+            // use the access token to access the Spotify Web API
+            var token = body.access_token;
+            //console.log(token);
+            var options = {
+            url: variableUrl, //'https://api.spotify.com/v1/users/jmperezperez',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+            json: true
+            };
 
-request.post(authOptions, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
+            request.get(options, function(error, response, body) {
+                if (error) console.log(error);
+                var id = body.artists.items[0].id; // ID del artista
+                getAlbums(id, token, decodedUrl);
 
-        // use the access token to access the Spotify Web API
-        var token = body.access_token;
-        //console.log(token);
-        var options = {
-        url: 'https://api.spotify.com/v1/search?q=tania%20bowra&type=artist', //'https://api.spotify.com/v1/users/jmperezperez',
-        headers: {
-            'Authorization': 'Bearer ' + token
-        },
-        json: true
-        };
+            });
+        } else {console.log(error);}
+    });
 
-        request.get(options, function(error, response, body) {
-            if (error) console.log(error);
-            var id = body.artists.items[0].id; // ID del artista
-            getAlbums(id, token);
+    var getAlbums = (artistId, accessToken, artistName)=>{
+        spotifyApi.setAccessToken(accessToken);
+        spotifyApi.getArtistAlbums(artistId)
+            .then(function(data) {
+                var albums = data.body.items
+                //console.log('Artist albums', albums);
+                readAlbums(albums, artistName);
+            }, function(err) {
+                console.error(err);
+            });
+    }
 
-        });
-    } else {console.log(error);}
-});
-
-var getAlbums = (artistId, accessToken)=>{
-    spotifyApi.setAccessToken(accessToken);
-    spotifyApi.getArtistAlbums(artistId)
-        .then(function(data) {
-            var albums = data.body.items
-            //console.log('Artist albums', albums);
-            readAlbums(albums);
-        }, function(err) {
-            console.error(err);
-        });
-}
-
-var readAlbums = (array2read) =>{
-    var long = array2read.length;
-    console.log('-------- Albums ------------');
-    for (var i = 0; i < long; i++) {
-        console.log(' - ',array2read[i].name);
+    var readAlbums = (array2read, artistName) =>{
+        var long = array2read.length;
+        console.log('-------- '+artistName + '`s Albums ------------');
+        for (var i = 0; i < long; i++) {
+            console.log(' - ',array2read[i].name);
+        }
     }
 }

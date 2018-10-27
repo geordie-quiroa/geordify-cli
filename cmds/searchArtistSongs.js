@@ -22,32 +22,34 @@ var authOptions = {
     json: true
     };
 
-request.post(authOptions, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-
-        // use the access token to access the Spotify Web API
-        var token = body.access_token;
-        spotifyApi.setAccessToken(token);
-        console.log(token);
-        searchTracks();
-    } else{
-        console.log(error);
-    }
-});
-
-var searchTracks = ()=>{
-    spotifyApi.searchTracks('artist:Andy Mineo')
-    .then(function(data) {
-        var arraySongs = data.body.tracks.items;
-        getSongs(arraySongs);
-    }, function(err) {
-        console.log('Something went wrong!', err);
+module.exports = (args) => {   
+    request.post(authOptions, function(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            // use the access token to access the Spotify Web API
+            var token = body.access_token;
+            spotifyApi.setAccessToken(token);
+            //console.log(token);
+            searchTracks();
+        } else{
+            console.log(error);
+        }
     });
-};
-var getSongs = (array2read)=>{
-    var long  = array2read.length;
-    console.log('-------- Songs ------------');
-    for (var i = 0; i < long; i++) {
-        console.log(' - ',array2read[i].name);
+
+    var searchTracks = ()=>{
+        var queryKey = 'artist:', queryValue = args.singer || args.band || args.s || args.b, query = queryKey + queryValue; 
+        spotifyApi.searchTracks(query)
+        .then(function(data) {
+            var arraySongs = data.body.tracks.items;
+            getSongs(arraySongs, queryValue);
+        }, function(err) {
+            console.log('Something went wrong!', err);
+        });
+    };
+    var getSongs = (array2read, artist)=>{
+        var long  = array2read.length;
+        console.log('-------- '+ artist+'`s Songs ------------');
+        for (var i = 0; i < long; i++) {
+            console.log(' - ',array2read[i].name);
+        }
     }
 }

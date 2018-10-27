@@ -15,8 +15,8 @@ module.exports = () => {
     }
     
     switch (cmd){
-        case 'sID':
-            require('./cmds/sID')(args);
+        case 'songs':
+            require('./cmds/searchArtistSongs')(args);
             break;
         case 'help':
             require('./cmds/help')(args);
@@ -26,6 +26,9 @@ module.exports = () => {
             break;
         case 'testAPI':
             require('./cmds/test')(args);
+            break;
+        case 'albums':
+            require('./cmds/searchArtistAlbums')(args);
             break;
         default: 
             console.error(`"${cmd}" no es un comando valido...`);

@@ -3,6 +3,7 @@ const menus = {
     geordify [command] <options>
 
     albums .............. displays the albums of the group/singer
+    songs
     version ............ shows package version
     help ............... shows help menu for a command`,
 
