@@ -74,3 +74,6 @@ Ahora se puede escribir `geordify` en cualquier interfaz de comandos (yo utilic√
 
 ![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifySongsWithFlags.png)
 
+## Authors
+
+* **Geordie Quiroa** - [github](https://github.com/geordie-quiroa)
