@@ -70,7 +70,7 @@ Ahora se puede escribir `geordify` en cualquier interfaz de comandos (yo utilic�
 
 ![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifySongsNoFlags.png)
 
-`$ geordify songs <options> "artist/band name" <flag>` Muestra las top 10 canciones más escuchadas del artista/banda consultada para el país de Guatemala.
+`$ geordify songs <options> "artist/band name" <flag>` Muestra las top 10 canciones más escuchadas del artista/banda consultada para el país definido en el comando.
 
 ![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifySongsWithFlags.png)
 
