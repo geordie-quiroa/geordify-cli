@@ -17,7 +17,7 @@ module.exports = () => {
     ${chalk.bgYellow('  ')}                                                                                                      ${chalk.bgYellow('  ')}`);
     console.log(`    ${chalk.bgYellow('                                                                                                          ')}`);
     console.log(`
-     ${chalk.bgCyan("Please wait a few seconds...")}
+     ${chalk.bgCyan("Please wait a few miliseconds...")}
     `);
     console.log(args);
     if (args.version || args.v) {

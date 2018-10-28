@@ -69,7 +69,7 @@ module.exports = (args) =>{
         acoust =  unidad.repeat(acoustDec)+decimales.repeat(((acoustDec)%1)*10), instrum = unidad.repeat(instruDec)+decimales.repeat(((instruDec)%1)*10),
         val = unidad.repeat(valDec)+decimales.repeat(((valDec)%1)*10);
         console.log(`
-    ${chalk.bgWhite('                                ')}${chalk.cyan(' Graphic for ', chalk.yellow(paramsAccepted))} ${chalk.bgWhite('                                ')}
+    ${chalk.bgWhite('                                ')}${chalk.cyan(' Graphic for ', chalk.yellow(paramsAccepted))} ${chalk.bgWhite('                                                             ')}
 
     `)
         console.log(`             danceablity | ${chalk.bgYellow(dance)} ${chalk.yellow(danceability)}
@@ -83,6 +83,15 @@ module.exports = (args) =>{
         instrumentallnes | ${chalk.bgYellow(instrum)} ${chalk.yellow(instrumentalness)}
 
                  valence | ${chalk.bgYellow(val)} ${chalk.yellow(valence)}
+     `);
+     if (args.m == true){
+        console.log(`     ${chalk.white.inverse('--------')} ${chalk.white('Directly from')} ${chalk.green('Spotify Docs')} ${chalk.white.inverse('------------------------------------------------------')}
+     
+            ${chalk.green('Danceablity -')} ${chalk.white('Whether the track is acoustic. 1.0 represents high confidence the track is acoustic.')}     
+
+            ${chalk.green('Acousticness -')} ${chalk.white('Whether the track is acoustic. 1.0 represents high confidence the track is acoustic.')} 
+     
      `)
+     }
     }
 }
