@@ -11,16 +11,21 @@
 * A command prompt
 
 Clone this repo
+
 `$ git clone https://github.com/geordie-quiroa/geordify-cli.git`
 
 Or download the most recent release tag and open the dir downloaded.
+
 `$ cd geordify-cli`
 
 Install the cli as a global package
+
 `$ npm install -g geordify-cli`
 
 Link the binary so you can access to it from any dir
+
  `$ npm link`
 
 Now you can type `geordify` to display all the commands available and their options.
+
 `$ geordify`
