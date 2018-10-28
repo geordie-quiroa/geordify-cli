@@ -9,10 +9,10 @@
 * Node JS
 * NPM
 * Línea de comandos (git bash)
-* Cuenta de spotify
+* Cuenta de spotify (developer)
 * Aplicación de spotify registrada
-* Token Client Id provista por spotify
-* Token secreto porvisto por spotify 
+* Token Client Id provisto por spotify
+* Token secreto provisto por spotify 
 
 ### Librerías utilizadas
 * minimist
