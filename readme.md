@@ -10,6 +10,11 @@
 * NPM
 * A command prompt
 
+### Libraries Used
+* minimist
+* spotify-web-api-node
+* chalk
+
 Clone this repo
 
 `$ git clone https://github.com/geordie-quiroa/geordify-cli.git`
@@ -29,3 +34,5 @@ Link the binary so you can access to it from any dir
 Now you can type `geordify` to display all the commands available and their options.
 
 `$ geordify`
+
+![](https://github.com/geordie-quiroa/geordify-cli/geordifyHelp.png)
