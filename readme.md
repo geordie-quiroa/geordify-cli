@@ -18,6 +18,7 @@
 * minimist
 * spotify-web-api-node
 * chalk
+* request
 
 Clonar el repositorio
 
@@ -26,6 +27,10 @@ Clonar el repositorio
 O bien, descargar el release tag más reciente y acceder al directorio descargado
 
 `$ cd geordify-cli`
+
+Instalar las librerías y dependencias en el package.json
+
+`$ npm install`
 
 Instalar el CLI como un paquete global
 
