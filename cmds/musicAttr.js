@@ -85,12 +85,25 @@ module.exports = (args) =>{
                  valence | ${chalk.bgYellow(val)} ${chalk.yellow(valence)}
      `);
      if (args.m == true){
-        console.log(`     ${chalk.white.inverse('--------')} ${chalk.white('Directly from')} ${chalk.green('Spotify Docs')} ${chalk.white.inverse('------------------------------------------------------')}
+        console.log(' ')
+        console.log(`   ${chalk.white.inverse('               ')} From ${chalk.green('Spotify')} Docs ${chalk.white.inverse('                                                                                        ')}
      
-            ${chalk.green('Danceablity -')} ${chalk.white('Whether the track is acoustic. 1.0 represents high confidence the track is acoustic.')}     
+        ${chalk.green('Danceablity -')} ${chalk.white('Danceability describes how suitable a track is for dancing based on ')}
+                      ${chalk.white('a combination of musical elements. ')}    
 
-            ${chalk.green('Acousticness -')} ${chalk.white('Whether the track is acoustic. 1.0 represents high confidence the track is acoustic.')} 
+            ${chalk.green('Energy -')} ${chalk.white('Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of ')} 
+                      ${chalk.white('intensity and activity. Typically, energetic tracks feel fast, loud, and noisy.')}
      
+        ${chalk.green('Speechness -')} ${chalk.white('The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0')} 
+
+      ${chalk.green('Acousticness -')} ${chalk.white('Whether the track is acoustic. 1.0 represents high confidence the track is acoustic.')} 
+        
+  ${chalk.green('Instrumentalness -')} ${chalk.white('Rap or spoken word tracks are clearly “vocal”. The closer the instrumentalness value ')} 
+                     ${chalk.white('is to 1.0, the greater likelihood the track contains no vocal content')}
+
+           ${chalk.green('Valence -')} ${chalk.white('Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while')} 
+                     ${chalk.white('tracks with low valence sound more negative')}
+       
      `)
      }
     }
