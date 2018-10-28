@@ -9,6 +9,10 @@
 * Node JS
 * NPM
 * A command prompt
+* Spotify Account
+* Spotify's Registered Application
+* Spotify's Client ID token
+* Spotify's Secret Token 
 
 ### Libraries Used
 * minimist
@@ -30,6 +34,17 @@ Install the cli as a global package
 Link the binary so you can access to it from any dir
 
  `$ npm link`
+
+Add your Spotify's `client id` and `secret key` in  `geordify-cli/cmds/log-credentials.js`
+
+```javascript
+module.exports = {
+    spotifyClientId:'your-client-id',
+    spotifySecretToken:'your-secret-token'
+}
+``` 
+
+(save the file)
 
 Now you can type `geordify` to display all the commands available and their options.
 
