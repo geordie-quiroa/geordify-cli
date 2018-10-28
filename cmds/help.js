@@ -21,8 +21,8 @@ const menus = {
 
   ${chalk.bgYellow('                       ')} ${chalk.yellow.underline('Options')} ${chalk.bgYellow('                         ')}
   
-    ${chalk.yellow('--artist')} || ${chalk.yellow('--a')} || ${chalk.yellow('--singer')} ${chalk.yellow('--s')} ..... the singer's songs
-    ${chalk.yellow('--band')} || ${chalk.yellow('--b')} .length...................................................... the group's songs
+    ${chalk.yellow('--artist')} || ${chalk.yellow('--a')} || ${chalk.yellow('--singer')} ${chalk.yellow('--s')} ........... displays the artist's songs
+    ${chalk.yellow('--band')} || ${chalk.yellow('--b')} ....................................................... displays the group's songs
 
   ${chalk.bgGreen('                        ')} ${chalk.green.underline('Flags')} ${chalk.bgGreen('                           ')}
   

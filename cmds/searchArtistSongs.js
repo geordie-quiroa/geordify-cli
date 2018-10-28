@@ -1,17 +1,11 @@
-var SpotifyWebApi = require('spotify-web-api-node');
-var request = require('request');
-var credentials = require('./log-credentials');
-var client_id = credentials.spotifyClientId; // Your client id
-var client_secret = credentials.spotifySecretToken; // Your secret
-var chalk = require('chalk');
+var SpotifyWebApi = require('spotify-web-api-node'), request = require('request'), credentials = require('./log-credentials'), client_id = credentials.spotifyClientId; // Your client id
+client_secret = credentials.spotifySecretToken, chalk = require('chalk');
 // credentials are optional
 var spotifyApi = new SpotifyWebApi({
   clientId: client_id,
   clientSecret: client_secret,
   redirectUri: 'http://www.example.com/callback'
 });
-
-//spotifyApi.setAccessToken('BQCvT2kB_sS402TVFmkmOIL80PRWAyPy1UapgSZz_W0H5EDym6nFb8FecSkOAMRvnEFBAP6qzV1suCCplIw');
 
 var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
@@ -67,7 +61,7 @@ module.exports = (args) => {
         }
     });
     var searchTop = (artistId, access_token)=>{
-        var baseUrl= 'https://api.spotify.com/v1/artists/', endpoint = '/top-tracks', qcountry = '?country=', country = args.country || 'US',  variableUrl = baseUrl+artistId+endpoint+qcountry+country;
+        var baseUrl= 'https://api.spotify.com/v1/artists/', endpoint = '/top-tracks', qcountry = '?country=', country = args.country || 'US',  variableUrl = baseUrl+ artistId +endpoint+qcountry+country;
         var options = {
             url: variableUrl, //'https://api.spotify.com/v1/users/jmperezperez',
             headers: {

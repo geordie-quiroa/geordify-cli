@@ -1,9 +1,4 @@
-var SpotifyWebApi = require('spotify-web-api-node');
-var request = require('request');
-var credentials = require('./log-credentials');
-var client_id = credentials.spotifyClientId; // Your client id
-var client_secret = credentials.spotifySecretToken; // Your secret
-var chalk = require('chalk');
+var SpotifyWebApi = require('spotify-web-api-node'),request = require('request'),credentials = require('./log-credentials'),client_id = credentials.spotifyClientId,client_secret = credentials.spotifySecretToken,chalk = require('chalk');
 var spotifyApi = new SpotifyWebApi({
   clientId: client_id,
   clientSecret: client_secret,

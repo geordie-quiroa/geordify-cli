@@ -1,11 +1,7 @@
 var request = require('request'); // "Request" library
 
-var client_id = '38e377baa81747a68c4cb3677646cc16'; // Your client id
-var client_secret = '87c0344055ab4e7cabc6924c12e245bf'; // Your secret
+var client_id = 'your-clientID',client_secret = 'your-secret-token'; 
 
-    
-
-// your application requests authorization
 module.exports = (args) =>{
     var authOptions = {
         url: 'https://accounts.spotify.com/api/token',

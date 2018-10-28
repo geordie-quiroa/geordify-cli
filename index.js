@@ -86,7 +86,7 @@ module.exports = () => {
             }
             break;
         default: 
-            console.error(`"${cmd}" no es un comando valido... ${chalk.yellow('Comandos validos')}:`);
+            console.error(`"${cmd}" is not a valid command... ${chalk.yellow('Check valid commands')}:`);
             require('./cmds/help')(args);
             break
     }
