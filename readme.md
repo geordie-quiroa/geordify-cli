@@ -54,6 +54,10 @@ Ahora se puede escribir `geordify` en cualquier interfaz de comandos (yo utilic�
 
 ## Ejemplos de uso
 
+`$ geordify graphic <options> "song name" <optional flag>` Muestra una gráfica de barras horizontales en base a los parámetros que regresa el API.
+
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/exampleGraphicNoFlag.png)
+
 `$ geordify albums <options> "artist/band name"` Despliega los álbumes del grupo/artista consultado.
 
 ![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifyAlbumsExample.png)
