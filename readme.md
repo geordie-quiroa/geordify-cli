@@ -2,7 +2,7 @@
 
 # Geordify-CLI
 
-> Esta app es una interfaz de comandos para consumir el api de spotify y consultar los albúmes de cualquier artista, sus canciones, las top 10 canciones más escuchadas de ese artista, así como crear una gráfica de barras horizontales de cada parámetro provisto por el API que tiene la canción consultada (danceability, energy, acousticness...). 
+> Esta app es una interfaz de comandos para consumir el api de spotify y consultar los álbumes de cualquier artista, sus canciones, las top 10 canciones más escuchadas de ese artista, así como crear una gráfica de barras horizontales de cada parámetro provisto por el API que tiene la canción consultada (danceability, energy, acousticness...). 
 
 ## Instalación
 ### Requerimientos
@@ -53,5 +53,12 @@ Ahora se puede escribir `geordify` en cualquier interfaz de comandos (yo utilic�
 ![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifyHelp.png)
 
 ## Ejemplos de uso
-`$ geordify albums`
+
+`$ geordify albums <options> "artist/band name"` Despliega los álbumes del grupo/artista consultado.
+
 ![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifyAlbumsExample.png)
+
+`$ geordify songs <options> "artist/band name" <optional flags>`
+
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifySongsNoFlags.png)
+
