@@ -35,4 +35,4 @@ Now you can type `geordify` to display all the commands available and their opti
 
 `$ geordify`
 
-![](https://github.com/geordie-quiroa/geordify-cli/geordifyHelp.png)
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifyHelp.png)
