@@ -19,7 +19,7 @@ module.exports = () => {
     console.log(`
      ${chalk.bgCyan("Please wait a few miliseconds...")}
     `);
-    console.log(args);
+    //console.log(args);
     if (args.version || args.v) {
         cmd = 'version';
       }    
@@ -29,8 +29,22 @@ module.exports = () => {
     }
     
     switch (cmd){
-        case 'audio-graphic':
-            require('./cmds/musicAttr')(args);
+        case 'graphic':
+            if (!(args.track  || args.t) && args._.length <2){
+                console.log(' ');
+                console.log(`        ${chalk.bgRed('ERROR:')} ${chalk.red('Missing params or wrong option.')}`)
+                require('./cmds/help')(args);
+            } else if ( (args.track  || args.t)== true || (args._.length>1)) {
+                console.log(' ');
+                console.log(`  ${chalk.bgRed('ERROR:')} ${chalk.red('Missing ',chalk.yellow('<options>') ,' and/or ', chalk.yellow('song'), 'name within')}  ${chalk.yellow('" "  (double or simple quotes)')}`);
+                require('./cmds/help')(args);
+            } else if ((args.track || args.t) == true) {
+                console.log(' ');
+                console.log(`  ${chalk.bgRed('ERROR:')} ${chalk.red('Missing ')} ${chalk.yellow('song name')}`);
+                require('./cmds/help')(args);
+            } else{
+                require('./cmds/musicAttr')(args);
+            }
             break;
         case 'songs':
             if (!(args.band  || args.b || args.artist  || args.a || args.singer ||args.s) && args._.length <2){

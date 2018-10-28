@@ -15,7 +15,7 @@ var authOptions = {
 };
 
 module.exports = (args) =>{
-    var paramsAccepted=  args.song  || args.s || args.track  || args.t; 
+    var paramsAccepted=  args.track  || args.t; 
     request.post(authOptions, function(error, response, body) {
         if (!error && response.statusCode === 200) {
             // use the access token to access the Spotify Web API
@@ -53,7 +53,7 @@ module.exports = (args) =>{
             };
         request.get(options4audioFeatures, function(error, response, body) {
             if (error) console.log(error);
-            console.log(body);
+            //console.log(body);
             readDictionary(body);
         });
     }
@@ -72,7 +72,7 @@ module.exports = (args) =>{
     ${chalk.bgWhite('                                ')}${chalk.cyan(' Graphic for ', chalk.yellow(paramsAccepted))} ${chalk.bgWhite('                                                             ')}
 
     `)
-        console.log(`             danceablity | ${chalk.bgYellow(dance)} ${chalk.yellow(danceability)}
+        console.log(`            danceability | ${chalk.bgYellow(dance)} ${chalk.yellow(danceability)}
      
                   energy | ${chalk.bgYellow(ener)} ${chalk.yellow(energy)} 
      
@@ -80,11 +80,11 @@ module.exports = (args) =>{
 
             acousticness | ${chalk.bgYellow(acoust)} ${chalk.yellow(acousticness)}
         
-        instrumentallnes | ${chalk.bgYellow(instrum)} ${chalk.yellow(instrumentalness)}
+        instrumentalness | ${chalk.bgYellow(instrum)} ${chalk.yellow(instrumentalness)}
 
                  valence | ${chalk.bgYellow(val)} ${chalk.yellow(valence)}
      `);
-     if (args.m == true){
+     if ((args.m || args.meaning) == true){
         console.log(' ')
         console.log(`   ${chalk.white.inverse('               ')} From ${chalk.green('Spotify')} Docs ${chalk.white.inverse('                                                                                        ')}
      

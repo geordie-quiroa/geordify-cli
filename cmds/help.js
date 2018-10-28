@@ -6,6 +6,7 @@ const menus = {
 
     ${chalk.yellow('albums')} .............. displays the albums of the group/singer
     ${chalk.yellow('songs')} ............... displays the artist/group's songs
+    ${chalk.yellow('graphic')} ......... draw the song's audio features in a horizontal bar graph.
     ${chalk.yellow('version')} ............ shows package version
     ${chalk.yellow('help')} ............... shows help menu for a command`,
 
@@ -40,6 +41,18 @@ const menus = {
          ${chalk.gray('IR')}                 ${chalk.gray('Iran')}
          ${chalk.gray('CH')}                 ${chalk.gray('Switzerland')}
          ${chalk.gray('IL')}                 ${chalk.gray('Israel')} 
+  `,
+  graphic: `
+  ${chalk.bgCyan('usage:')} ${chalk.cyan('geordify graphic')} ${chalk.yellow('<options>')} ${chalk.cyan('"song name"')} ${chalk.green('<flags> (optional)')}
+
+  ${chalk.bgYellow('                       ')} ${chalk.yellow.underline('Options')} ${chalk.bgYellow('                         ')}
+  
+    ${chalk.yellow('--t')} || ${chalk.yellow('--track')} ............................. the song´s track name and its graphic.
+
+  ${chalk.bgGreen('                        ')} ${chalk.green.underline('Flags')} ${chalk.bgGreen('                           ')}
+  
+    ${chalk.green('Default (none)')} ................................. Just draw the song´s graphic with its parameters.
+    ${chalk.green('--m')} || ${chalk.green('--meaning')} ............. displays the meaning of each audio parameter in the graphic.
   `
 }
 
