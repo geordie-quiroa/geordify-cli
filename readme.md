@@ -51,3 +51,7 @@ Ahora se puede escribir `geordify` en cualquier interfaz de comandos (yo utilic√
 `$ geordify`
 
 ![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifyHelp.png)
+
+## Ejemplos de uso
+`$ geordify albums`
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifyAlbumsExample.png)
