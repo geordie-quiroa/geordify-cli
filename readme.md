@@ -2,40 +2,40 @@
 
 # Geordify-CLI
 
-> This is a Spotify CLI (command line interface) for consulting artist's albums, songs, top 10 songs and displaying a horizontal graph bar with any song's characteristics (danceability, energy, acousticness...) provided by the spotify's web api. 
+> Esta app es una interfaz de comandos para consumir el api de spotify y consultar los albúmes de cualquier artista, sus canciones, las top 10 canciones más escuchadas de ese artista, así como crear una gráfica de barras horizontales de cada parámetro provisto por el API que tiene la canción consultada (danceability, energy, acousticness...). 
 
-## Installation
-### Requirements
+## Instalación
+### Requerimientos
 * Node JS
 * NPM
-* A command prompt
-* Spotify Account
-* Spotify's Registered Application
-* Spotify's Client ID token
-* Spotify's Secret Token 
+* Línea de comandos (git bash)
+* Cuenta de spotify
+* Aplicación de spotify registrada
+* Token Client Id provista por spotify
+* Token secreto porvisto por spotify 
 
-### Libraries Used
+### Librerías utilizadas
 * minimist
 * spotify-web-api-node
 * chalk
 
-Clone this repo
+Clonar el repositorio
 
 `$ git clone https://github.com/geordie-quiroa/geordify-cli.git`
 
-Or download the most recent release tag and open the dir downloaded.
+O bien, descargar el release tag más reciente y acceder al directorio descargado
 
 `$ cd geordify-cli`
 
-Install the cli as a global package
+Instalar el CLI como un paquete global
 
 `$ npm install -g geordify-cli`
 
-Link the binary so you can access to it from any dir
+Linkear el archivo binario para poder correr la interfaz desde cualquier dierctorio bajo el comando `geordify`
 
  `$ npm link`
 
-Add your Spotify's `client id` and `secret key` in  `geordify-cli/cmds/log-credentials.js`
+Agregar el `client id` y `secret key` en el archivo  `geordify-cli/cmds/log-credentials.js` para poder realizar las consultas al API
 
 ```javascript
 module.exports = {
@@ -44,9 +44,9 @@ module.exports = {
 }
 ``` 
 
-(save the file)
+(guardar los cambios)
 
-Now you can type `geordify` to display all the commands available and their options.
+Ahora se puede escribir `geordify` en cualquier interfaz de comandos (yo utilicé git bash) para correr el CLI y mostrar los comandos y opciones disponibles
 
 `$ geordify`
 
