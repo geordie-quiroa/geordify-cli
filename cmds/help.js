@@ -11,7 +11,7 @@ const menus = {
     ${chalk.yellow('help')} ............... shows help menu for a command`,
 
   albums: `
-    ${chalk.bgCyan('usage:')} ${chalk.cyan('geordify albums')} ${chalk.yellow('<options>')} ${chalk.cyan('"artist/group name"')}
+    ${chalk.bgCyan('usage:')} ${chalk.cyan('geordify albums')} ${chalk.yellow('<options>')} ${chalk.cyan('"artist/group name"')} ${chalk.green('<optional flags>')}
 
     ${chalk.bgYellow('                       ')} ${chalk.yellow.underline('Options')} ${chalk.bgYellow('                         ')}
 
