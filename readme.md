@@ -38,7 +38,7 @@ Instalar el CLI como un paquete global
 
 Linkear el archivo binario para poder correr la interfaz desde cualquier dierctorio bajo el comando `geordify`
 
- `$ npm link`
+ `$ npm link geordify-cli`
 
 Agregar el `client id` y `secret key` en el archivo  `geordify-cli/cmds/log-credentials.js` para poder realizar las consultas al API
 
