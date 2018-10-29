@@ -1,6 +1,6 @@
 {
   "name": "geordify-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a CLI for consuming the spotify api from the command line prompt.",
   "main": "index.js",
   "bin": {
