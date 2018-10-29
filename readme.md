@@ -71,6 +71,10 @@ Ahora se puede escribir `geordify` en cualquier interfaz de comandos (yo utilic√
 
 ![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifyAlbumsExample.png)
 
+`$ geordify albums <options> "artist/band name" --count` Despliega el total de √°lbumes que tiene grupo/artista consultado.
+
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifyAlbumsExample.png)
+
 `$ geordify songs <options> "artist/band name" <optional flags>` Muestra las canciones del artista/banda consultada sin flags.
 
 ![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifySongsNoFlags.png)

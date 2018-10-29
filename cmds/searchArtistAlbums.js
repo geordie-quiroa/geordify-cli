@@ -56,13 +56,27 @@ module.exports = (args) => {
 
     var readAlbums = (array2read, artistName) =>{
         var long = array2read.length;
-        console.log(`   ${chalk.bgWhite('                                                                                                        ')}`)
-        console.log('  ',  chalk.bgWhite('  '),chalk.hex('#DEADED').bold(' -------------------------------------- '), chalk.yellow.bold(artistName+'`s'),chalk.hex('#DEADED').bold(' Albums ---------------------------------- '));
-        console.log(' ');
-        for (var i = 0; i < long; i++) {
-            console.log(`                               ${chalk.yellow.bold(' -')}  ${chalk.hex('#DEADED').bold(array2read[i].name)}`);
+        if (!(args.c || args.count)){
+            console.log(`   ${chalk.bgWhite('                                                                                                        ')}`)
+            console.log('  ',  chalk.bgWhite('  '),chalk.hex('#DEADED').bold(' -------------------------------------- '), chalk.yellow.bold(artistName+'`s'),chalk.hex('#DEADED').bold(' Albums ---------------------------------- '));
+            console.log(' ');
+            for (var i = 0; i < long; i++) {
+                console.log(`                               ${chalk.yellow.bold(' -')}  ${chalk.hex('#DEADED').bold(array2read[i].name)}`);
+            }
+            console.log(`   ${chalk.bgWhite('  ')}                                                                                                    ${chalk.bgWhite('  ')}`);
+            console.log(`   ${chalk.bgWhite('                                                                                            ',chalk.bgWhite.black('Geordify'),'  ')}`)
+        } else if((args.c || args.count)== true) {
+            if (long>19){
+                console.log(`
+                    
+      ${chalk.white(chalk.yellow(artistName), ' has more than ', chalk.yellow('19'), ' albums.')}
+                    
+                `)
+            } else {
+                console.log(`
+      ${chalk.white(chalk.yellow(artistName), ' has ', chalk.yellow(long), ' albums.')}
+                `)
+            }
         }
-        console.log(`   ${chalk.bgWhite('  ')}                                                                                                    ${chalk.bgWhite('  ')}`);
-        console.log(`   ${chalk.bgWhite('                                                                                            ',chalk.bgWhite.black('Geordify'),'  ')}`)
     }
 }

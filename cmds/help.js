@@ -13,8 +13,16 @@ const menus = {
   albums: `
     ${chalk.bgCyan('usage:')} ${chalk.cyan('geordify albums')} ${chalk.yellow('<options>')} ${chalk.cyan('"artist/group name"')}
 
-    ${chalk.yellow('--singer')} || ${chalk.yellow('--artist')} || ${chalk.yellow('--a')}  ........ displays the singer's albums
-    ${chalk.yellow('--band')} || ${chalk.yellow('--b')} || ${chalk.yellow('--group')}  ........... displays the group's albums
+    ${chalk.bgYellow('                       ')} ${chalk.yellow.underline('Options')} ${chalk.bgYellow('                         ')}
+
+      ${chalk.yellow('--singer')} || ${chalk.yellow('--artist')} || ${chalk.yellow('--a')}  ........ displays the singer's albums
+      ${chalk.yellow('--band')} || ${chalk.yellow('--b')} || ${chalk.yellow('--group')}  ........... displays the group's albums
+
+    ${chalk.bgGreen('                        ')} ${chalk.green.underline('Flags')} ${chalk.bgGreen('                           ')}
+      ${chalk.green('Default (none)')} ................................. Just retrieves the singer/group's albums.
+      ${chalk.green('--c')} || ${chalk.green('--count')} ................. retrieves the total of albums
+
+      
     `,
   songs: `
   ${chalk.bgCyan('usage:')} ${chalk.cyan('geordify songs')} ${chalk.yellow('<options>')} ${chalk.cyan('"artist/group name"')} ${chalk.green('<flags> (optional)')}
@@ -37,7 +45,7 @@ const menus = {
          ${chalk.gray('AU')}                 ${chalk.gray('Australia')}
          ${chalk.gray('GT')}                 ${chalk.gray('Guatemala')}
          ${chalk.gray('CL')}                 ${chalk.gray('Chile')}
-         ${chalk.gray('CL')}                 ${chalk.gray('Chile')}
+         ${chalk.gray('MX')}                 ${chalk.gray('Mexico')}
          ${chalk.gray('IR')}                 ${chalk.gray('Iran')}
          ${chalk.gray('CH')}                 ${chalk.gray('Switzerland')}
          ${chalk.gray('IL')}                 ${chalk.gray('Israel')} 
