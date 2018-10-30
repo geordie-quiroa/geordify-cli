@@ -69,8 +69,9 @@ module.exports = (args) =>{
         acoust =  unidad.repeat(acoustDec)+decimales.repeat(((acoustDec)%1)*10), instrum = unidad.repeat(instruDec)+decimales.repeat(((instruDec)%1)*10),
         val = unidad.repeat(valDec)+decimales.repeat(((valDec)%1)*10);
         console.log(`
-    ${chalk.bgWhite('                                ')}${chalk.cyan(' Graphic for ', chalk.yellow(paramsAccepted))} ${chalk.bgWhite('                                                             ')}
+    ${chalk.bgWhite('                                ')}${chalk.cyan(' Graphic for ', chalk.yellow(paramsAccepted))} ${chalk.bgWhite('                                                                   ')}
 
+               ${chalk.gray('scale')}     ${chalk.gray('| 0 ----- 0.1 ----- 0.2 ----- 0.3 ----- 0.4 ----- 0.5 ----- 0.6 ----- 0.7 ----- 0.8 ----- 0.9 ----- 1.0')} 
     `)
         console.log(`            danceability | ${chalk.bgYellow(dance)} ${chalk.yellow(danceability)}
      
@@ -86,7 +87,7 @@ module.exports = (args) =>{
      `);
      if ((args.m || args.meaning) == true){
         console.log(' ')
-        console.log(`   ${chalk.white.inverse('               ')} From ${chalk.green('Spotify')} Docs ${chalk.white.inverse('                                                                                        ')}
+        console.log(`   ${chalk.white.inverse('               ')} From ${chalk.green('Spotify')} Docs ${chalk.white.inverse('                                                                                           ')}
      
         ${chalk.green('Danceablity -')} ${chalk.white('Danceability describes how suitable a track is for dancing based on ')}
                       ${chalk.white('a combination of musical elements. ')}    

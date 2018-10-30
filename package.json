@@ -3,6 +3,11 @@
   "version": "1.0.1",
   "description": "This is a CLI for consuming the spotify api from the command line prompt.",
   "main": "index.js",
+  "homepage":"https://github.com/geordie-quiroa/geordify-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geordie-quiroa/geordify-cli"
+  },
   "bin": {
     "geordify": "bin/geordify"
   },
