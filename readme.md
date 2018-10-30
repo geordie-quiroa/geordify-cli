@@ -1,4 +1,4 @@
-<img src="icon.png" align="right" />
+<img src="images/icon.png" align="right" />
 
 # Geordify-CLI
 
@@ -55,33 +55,33 @@ Ahora se puede escribir `geordify` en cualquier interfaz de comandos (yo utilic�
 
 `$ geordify`
 
-![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifyHelp.png)
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/images/geordifyHelp.png)
 
 ## Ejemplos de uso
 
 `$ geordify graphic <options> "song name" <flag>` Muestra una gráfica de barras horizontales en base a los parámetros que regresa el API con el significado en base a la documentación de Spotify.
 
-![](https://github.com/geordie-quiroa/geordify-cli/blob/master/exampleGraphicWithFlag.png)
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/images/exampleGraphicWithFlag.png)
 
 `$ geordify graphic <options> "song name" <optional flag>` Muestra una gráfica de barras horizontales en base a los parámetros que regresa el API.
 
-![](https://github.com/geordie-quiroa/geordify-cli/blob/master/exampleGraphicNoFlag.png)
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/images/exampleGraphicNoFlag.png)
 
 `$ geordify albums <options> "artist/band name"` Despliega los álbumes del grupo/artista consultado.
 
-![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifyAlbumsExample.png)
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/images/geordifyAlbumsExample.png)
 
 `$ geordify albums <options> "artist/band name" --count` Despliega el total de álbumes que tiene grupo/artista consultado.
 
-![](https://github.com/geordie-quiroa/geordify-cli/blob/master/exampleAlbumsCount.png)
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/images/exampleAlbumsCount.png)
 
 `$ geordify songs <options> "artist/band name" <optional flags>` Muestra las canciones del artista/banda consultada sin flags.
 
-![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifySongsNoFlags.png)
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/images/geordifySongsNoFlags.png)
 
 `$ geordify songs <options> "artist/band name" <flag>` Muestra las top 10 canciones más escuchadas del artista/banda consultada para el país definido en el comando.
 
-![](https://github.com/geordie-quiroa/geordify-cli/blob/master/geordifySongsWithFlags.png)
+![](https://github.com/geordie-quiroa/geordify-cli/blob/master/images/geordifySongsWithFlags.png)
 
 ## Authors
 
